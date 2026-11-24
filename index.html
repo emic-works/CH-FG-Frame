@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chairman × Gehry Framed Edition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+/* VOICE: quiet, gallery-formal, a fabrication brief that also sells the work
+   IDEA: a framer's proposal folio — each slide a sheet, drawings in the margins
+   PICTURE: brushed-steel frames at true 42:10 proportion, measured drawings with arrows
+   COLOUR and TYPE: charcoal ground, steel grey lines, white print; Inter 200 titles, 300 body
+   LAYOUT: 16:9 sheets on a sideways deck, generous air, small compact images */
+:root{color-scheme:dark;--bg:#111214;--sheet:#16171a;--ink:#ecebe8;--mute:#8d8f93;--line:#3a3c41;--steel:#c4c8cd;--dim:#b9bec4}
+:root[data-theme=light],:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font:300 16px/1.55 Inter,"Helvetica Neue",Arial,sans-serif;overflow:hidden}
+.deck{display:flex;height:100vh;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none}
+.deck::-webkit-scrollbar{display:none}
+.slide{flex:0 0 100%;height:100vh;display:grid;place-items:center;scroll-snap-align:start;padding:3vh 3vw}
+.stage{--sw:min(94vw,66.5vh);width:var(--sw);aspect-ratio:900/1272;container-type:inline-size;position:relative;background:var(--sheet);display:flex;flex-direction:column;justify-content:center;gap:calc(var(--sw)*.031);padding:calc(var(--sw)*.08) calc(var(--sw)*.071) calc(var(--sw)*.089)}
+.stage>*{width:100%}
+h1,h2{font-weight:200;margin:0;line-height:1.05;text-wrap:balance;letter-spacing:-.01em}
+h1{font-size:max(30px,4.4cqw)}
+h2{font-size:max(24px,2.9cqw)}
+p,li,td,th{font-size:max(13px,1.12cqw)}
+.mute{color:var(--mute)}
+.small{font-size:max(12px,.86cqw)}
+.foot{position:absolute;left:6cqw;right:6cqw;bottom:2.2cqw;display:flex;justify-content:space-between;color:var(--mute);font-size:max(11px,.78cqw)}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:5cqw;align-items:center}
+.lede{max-width:34em;margin-top:1.6cqw}
+.frame{display:block;width:100%;aspect-ratio:1;box-shadow:0 1.4cqw 2.6cqw rgba(0,0,0,.55),0 .2cqw .4cqw rgba(0,0,0,.4)}
+.specs{list-style:none;padding:0;margin:2cqw 0 0;border-top:1px solid var(--line)}
+.specs li{display:flex;justify-content:space-between;gap:2cqw;padding:.85cqw 0;border-bottom:1px solid var(--line)}
+.specs b{font-weight:300;color:var(--mute)}
+.specs span{text-align:right;white-space:nowrap}
+.grid5{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:2.2cqw 2.6cqw}
+.grid5 figure{margin:0}
+.grid5 img{width:100%;aspect-ratio:1;display:block}
+.grid5 figcaption{display:flex;justify-content:space-between;margin-top:.6cqw;font-size:max(11px,.82cqw);color:var(--mute)}
+.grid5 figcaption b{font-weight:400;color:var(--ink)}
+.cover{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);align-items:end}
+.cover .frame{width:62%;margin-left:auto}
+.ed{display:grid;grid-template-columns:minmax(0,2.4fr) minmax(0,1fr);gap:4cqw;align-items:center}
+.ed .grid5{gap:1.4cqw}
+.ed .grid5 img{box-shadow:0 .6cqw 1.2cqw rgba(0,0,0,.5)}
+.big{aspect-ratio:1300/1500;width:var(--w,24cqw);margin:0 auto;box-shadow:0 1.2cqw 2.4cqw rgba(0,0,0,.55)}
+.pf{padding:.35cqw;background:linear-gradient(135deg,#e6e8eb,#9fa4aa 40%,#d9dce0 60%,#8e9399);}
+.pf .mat{background:#f7f6f3;height:100%;padding:11.538%}
+.pf .mat img{width:100%;height:100%;object-fit:cover;display:block}
+svg.draw{width:100%;height:100%;display:block}
+.draw text{fill:var(--dim);font-family:Inter,Arial,sans-serif;font-weight:300}
+.draw .ln{stroke:var(--dim);fill:none}
+.draw .ext{stroke:#5b5f65;fill:none;stroke-dasharray:1 1}
+.note{border-left:1px solid var(--line);padding-left:1.4cqw;margin-top:1.6cqw}
+table{border-collapse:collapse;width:100%;margin-top:2cqw}
+th,td{text-align:left;padding:.7cqw 1cqw .7cqw 0;border-bottom:1px solid var(--line);white-space:nowrap}
+th{font-weight:300;color:var(--mute)}
+td.n{text-align:right}
+.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.6cqw 2cqw;width:72%}
+.grid4 figure{margin:0}.grid4 img{width:100%;aspect-ratio:1;display:block}
+.grid4 figcaption{margin-top:.5cqw;font-size:max(11px,.82cqw);color:var(--mute)}
+.refs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2.4cqw}.refs figure{margin:0}.refs img{width:100%;aspect-ratio:1;display:block}
+.refs figcaption{display:flex;gap:1cqw;margin-top:.6cqw;font-size:max(11px,.82cqw);color:var(--mute)}.refs figcaption b{font-weight:400;color:var(--ink)}
+.room{width:74%;display:block;margin:1.6cqw auto 0;box-shadow:0 1cqw 2cqw rgba(0,0,0,.5)}
+.close{place-items:center;text-align:center}
+.close img{width:14cqw;filter:invert(1)}
+.nav{position:fixed;right:2vw;bottom:2vh;display:flex;gap:6px;align-items:center;z-index:5}
+.nav button{width:44px;height:44px;border:1px solid var(--line);background:rgba(17,18,20,.8);color:var(--ink);font:300 18px Inter,sans-serif;cursor:pointer;border-radius:50%}
+.nav button:focus-visible{outline:2px solid var(--steel);outline-offset:2px}
+.nav span{color:var(--mute);font-size:13px;min-width:52px;text-align:center}
+
+/* portrait sheets */
+h1{font-size:max(30px,5.8cqw)}h2{font-size:max(22px,4cqw)}
+p,li,td,th{font-size:max(13px,1.67cqw)}.small{font-size:max(12px,1.44cqw)}
+.foot{left:7.1cqw;right:7.1cqw;bottom:3.6cqw;font-size:max(11px,1.33cqw)}
+.split,.cover,.ed{display:flex;flex-direction:column;gap:3.6cqw;align-items:stretch}
+.cover{justify-content:center}
+.cover .frame{width:72%;margin:0 auto}
+.split>.frame{width:66%;margin:0 auto}
+.split>div[style*="height"]{height:49cqw!important}
+.lede{margin-top:1.2cqw}
+.grid5{grid-template-columns:repeat(3,minmax(0,1fr));gap:2cqw}
+#selGrid{grid-template-columns:repeat(5,minmax(0,1fr));gap:1.6cqw}
+.ed .grid5{grid-template-columns:repeat(5,minmax(0,1fr))}
+.grid4{grid-template-columns:repeat(3,minmax(0,1fr));width:100%;gap:2cqw}
+.grid5 figcaption,.grid4 figcaption{font-size:max(11px,1.2cqw)}
+.refs{grid-template-columns:1fr 1fr;gap:2cqw}
+.refs figure:first-child{grid-column:1/-1;width:62%;margin:0 auto}
+.room{width:100%;margin:0}
+.big{width:42cqw;margin:0 auto}
+.ed .big{width:26.7cqw}
+.specs{margin-top:1.4cqw}.specs li{padding:1cqw 0}
+.close{justify-content:center;align-items:center;text-align:center}
+.close img{width:24cqw}
+.close .small{font-size:max(12px,1.44cqw)}
+@media (max-width:520px){
+  .refs{grid-template-columns:1fr}
+  html,body{overflow:auto}
+  .deck{display:block;height:auto;overflow:visible}
+  .slide{height:auto;padding:16px}
+  .stage{width:100%;aspect-ratio:auto;padding:28px 20px 48px;container-type:normal}
+  .split,.cover,.ed{grid-template-columns:1fr;gap:28px}
+  .grid5{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+  .big{width:60%}.ed .big{width:40%}.grid4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .foot{left:20px;right:20px;bottom:14px}
+  .nav{display:none}
+  table{display:block;overflow-x:auto}
+}
+@media print{html,body{overflow:visible}.deck{display:block;height:auto}.slide{height:auto;page-break-after:always}.nav{display:none}}
+@media (prefers-reduced-motion:reduce){.deck{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute"><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0,1.5 L10,5 L0,8.5" fill="none" stroke="#b9bec4" stroke-width="1.2"/></marker>
+</defs></svg>
+
+<main class="deck" id="deck">
+
+<section class="slide"><div class="stage cover">
+  <div>
+    <p class="mute">Proposal · Framed edition</p>
+    <h1>The Chairman<br>and Frank Gehry</h1>
+    <p class="lede mute">Ten moments set in brushed stainless steel, and one portrait at full scale.</p>
+  </div>
+  <img class="frame" src="img/frame02.jpg" alt="Brushed stainless steel frame with a small square photograph of the two men walking arm in arm">
+  <div class="foot"><span>EMIC WORKS</span><span>Abu Dhabi</span></div>
+</div></section>
+
+<section class="slide"><div class="stage">
+  <h2>In hand</h2>
+  <p class="mute small" style="margin:.8cqw 0 2.4cqw">Brushed steel, a small window, one moment at a time.</p>
+  <div class="refs">
+    <figure><img src="img/ref_a.jpg" alt="Single steel frame on a jute rug with a print of the two men smiling"></figure>
+    <figure><img src="img/ref_b.jpg" alt="Four steel frames on a jute rug, each with a small print"></figure>
+    <figure><img src="img/ref_c.jpg" alt="Four steel frames on a jute rug with prints of the site and the two men"></figure>
+  </div>
+  <div class="foot"><span>Introduction</span><span>02</span></div>
+</div></section>
+
+<section class="slide"><div class="stage">
+  <h2>The edition</h2>
+  <div class="ed" style="margin-top:3cqw">
+    <div class="grid5" id="edGrid"></div>
+    <div>
+      <div class="big pf" style="--w:15cqw"><div class="mat"><img src="img/portrait.jpg" alt="Portrait of the Chairman kissing Frank Gehry's forehead"></div></div>
+    </div>
+  </div>
+  <ul class="specs" style="margin-top:3cqw">
+    <li><b>Series</b><span>10 steel frames, 420 × 420 × 40 mm</span></li>
+    <li><b>Centrepiece</b><span>1 portrait, 1300 × 1500 × 40 mm</span></li>
+  </ul>
+  <div class="foot"><span>Overview</span><span>03</span></div>
+</div></section>
+
+<section class="slide"><div class="stage split">
+  <img class="frame" src="img/frame04.jpg" alt="One steel frame with a 10 cm square print in the centre">
+  <div>
+    <h2>The piece</h2>
+    <p class="lede mute">A solid field of brushed steel with one small window. The photograph is kept small on purpose, so the viewer steps in close.</p>
+    <ul class="specs">
+      <li><b>Frame</b><span>420 × 420 mm</span></li>
+      <li><b>Material</b><span>Stainless steel, brushed</span></li>
+      <li><b>Print</b><span>100 × 100 mm, centred</span></li>
+      <li><b>Glazing</b><span>Glass over the print</span></li>
+      <li><b>Steel margin</b><span>160 mm each side</span></li>
+      <li><b>Depth</b><span>40 mm</span></li>
+      <li><b>Quantity</b><span>10</span></li>
+    </ul>
+  </div>
+  <div class="foot"><span>Steel frame</span><span>04</span></div>
+</div></section>
+
+<section class="slide"><div class="stage">
+  <h2>Measurements · steel frame</h2>
+  <div class="split" style="grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);margin-top:1cqw">
+    <div style="height:36cqw"><svg class="draw" id="dFrame" viewBox="-16 -14 84 74" role="img" aria-label="Front elevation of the 420 mm steel frame with a 100 mm window"></svg></div>
+    <div>
+      <p class="mute small">Front elevation and side · all dimensions in mm</p>
+      <ul class="specs">
+        <li><b>Overall</b><span>420 × 420 × 40 deep</span></li>
+        <li><b>Sight window</b><span>100 × 100</span></li>
+        <li><b>Window position</b><span>Centred, 160 from every edge</span></li>
+        <li><b>Print</b><span>100 × 100, full bleed</span></li>
+        <li><b>Build, front to back</b><span>Steel face · glass · print · backing</span></li>
+        <li><b>Depth</b><span>40, steel sides</span></li>
+        <li><b>Fixings</b><span>D-rings and wire, see back</span></li>
+      </ul>
+      <p class="note small mute">Print size equals the sight window. Add a few millimetres of bleed behind the steel so no white edge shows.</p>
+    </div>
+  </div>
+  <div class="foot"><span>Production drawing</span><span>05</span></div>
+</div></section>
+
+<section class="slide"><div class="stage">
+  <h2>Measurements · portrait frame</h2>
+  <div class="split" style="grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);margin-top:1cqw">
+    <div style="height:38cqw"><svg class="draw" id="dBig" viewBox="-55 -38 250 228" role="img" aria-label="Elevation of the 1300 by 1500 mm portrait frame with an even 150 mm white border"></svg></div>
+    <div>
+      <p class="mute small">Elevation · all dimensions in mm</p>
+      <ul class="specs">
+        <li><b>Overall</b><span>1300 × 1500 × 40 deep, portrait</span></li>
+        <li><b>Print</b><span>1000 × 1200</span></li>
+        <li><b>White border</b><span>150 on all four sides</span></li>
+        <li><b>Frame</b><span>Thin stainless steel profile</span></li>
+        <li><b>Depth</b><span>40</span></li>
+        <li><b>Glazing</b><span>Glass, full face</span></li>
+      </ul>
+      <p class="note small mute">Print ratio 5:6. GAD5-25 is 4:5, so about 4% is trimmed from the top, dark background only; both figures stay whole. Overall size is measured to the outside of the border; add the steel profile width once the fabricator confirms it.</p>
+    </div>
+  </div>
+  <div class="foot"><span>Production drawing</span><span>06</span></div>
+</div></section>
+
+<section class="slide"><div class="stage">
+  <h2>Depth · 40 mm</h2>
+  <p class="mute small">Every frame is a 40 mm deep steel box, so it stands off the wall with a clean steel edge on all four sides.</p>
+  <img src="img/depth_photo.jpg" alt="Steel frame leaning on a wall, showing its 40 mm deep steel side" style="width:100%;display:block">
+  <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:3cqw;align-items:center">
+    <img src="img/depth_steel.jpg" alt="Three-quarter view of the 420 by 420 by 40 mm steel frame drawn to scale" style="width:100%;display:block">
+    <div><ul class="specs" style="margin-top:0"><li><b>Steel frames</b><span>420 × 420 × 40 mm</span></li><li><b>Portrait</b><span>1300 × 1500 × 40 mm</span></li><li><b>Sides</b><span>Brushed steel, full depth</span></li></ul><p class="mute small" style="margin-top:1.4cqw">Left: drawn to exact proportion. Top: generated depth reference; window size follows the drawings.</p></div>
+  </div>
+  <div class="foot"><span>Production drawing</span><span>07</span></div>
+</div></section>
+
+<section class="slide"><div class="stage">
+  <h2>Image options</h2>
+  <p class="mute small" style="margin:.8cqw 0 2.4cqw">Eighteen photographs for the ten steel frames, read as a sequence: the site, the people, the construction. The final ten are chosen from this sheet.</p>
+  <div class="grid5" id="selGrid"></div>
+  <div class="foot"><span>Image options</span><span>08</span></div>
+</div></section>
+
+<section class="slide"><div class="stage">
+  <h2>Wall layout · series</h2>
+  <div class="split" style="grid-template-columns:minmax(0,1.9fr) minmax(0,1fr);margin-top:1cqw">
+    <div style="height:36cqw"><svg class="draw" id="dWall" viewBox="-40 -30 320 240" role="img" aria-label="Wall elevation of ten frames in two rows of five"></svg></div>
+    <div>
+      <p class="mute small">Suggested hang · all dimensions in mm</p>
+      <ul class="specs">
+        <li><b>Arrangement</b><span>2 rows × 5</span></li>
+        <li><b>Gap between frames</b><span>100</span></li>
+        <li><b>Overall</b><span>2500 × 940</span></li>
+        <li><b>Centre height</b><span>1500 from floor</span></li>
+      </ul>
+      <p class="note small mute">Frame positions 01 to 10; images are placed once the final ten are chosen. Gap and centre height can change on site.</p>
+    </div>
+  </div>
+  <div class="foot"><span>Installation</span><span>09</span></div>
+</div></section>
+
+<section class="slide"><div class="stage">
+  <h2>In the room</h2>
+  <img class="room" src="img/room.jpg" alt="Gallery wall with the ten steel frames in two rows and the large portrait to the right">
+  <p class="mute small" style="margin-top:1.2cqw">Visual mockup to scale: series 2500 × 940 mm, portrait 1300 × 1500 mm, 900 mm apart, both centred 1500 mm above the floor. Room generated for illustration.</p>
+  <div class="foot"><span>Installation view</span><span>10</span></div>
+</div></section>
+
+<section class="slide"><div class="stage split" style="grid-template-columns:minmax(0,1fr) minmax(0,1fr)">
+  <div class="big pf" style="--w:min(26cqw,100%)"><div class="mat"><img src="img/portrait.jpg" alt="The Chairman kisses Frank Gehry's forehead"></div></div>
+  <div>
+    <h2>The portrait</h2>
+    <p class="lede mute">The closing image of the series, printed large. A thin steel line and a wide white border keep the attention on the gesture.</p>
+    <ul class="specs">
+      <li><b>Overall</b><span>1300 × 1500 × 40 mm</span></li>
+      <li><b>Print</b><span>1000 × 1200 mm</span></li>
+      <li><b>Border</b><span>150 mm, even</span></li>
+      <li><b>File</b><span>GAD5-25</span></li>
+    </ul>
+  </div>
+  <div class="foot"><span>Centrepiece</span><span>11</span></div>
+</div></section>
+
+<section class="slide"><div class="stage">
+  <h2>The back</h2>
+  <p class="mute small">A standard frame back: steel rim, backing board, turn clips, D-rings with hanging wire and wall bumpers. The credit is debossed in the bottom left corner of every piece.</p>
+  <img class="frame" style="width:52%;margin:0 auto" src="img/back.jpg" alt="Back of the steel frame with backing board, clips, D-rings, hanging wire and a debossed credit in the bottom left corner">
+  <img src="img/back_detail.jpg" alt="Close-up of the deboss: EMIC, Photographer, Department of Culture and Tourism, Guggenheim Abu Dhabi, 04292025" style="width:100%;display:block">
+  <ul class="specs">
+    <li><b>Credit</b><span>EMIC · Photographer</span></li>
+    <li><b>Client</b><span>Department of Culture &amp; Tourism</span></li>
+    <li><b>Location</b><span>Guggenheim Abu Dhabi</span></li>
+    <li><b>Date</b><span>04292025</span></li>
+    <li><b>Deboss</b><span>Bottom left, 32 mm from left and bottom edges, blind</span></li>
+    <li><b>Applies to</b><span>All 10 steel frames and the portrait</span></li>
+    <li><b>Hardware</b><span>8 turn clips · 2 D-rings · wire · 4 bumpers</span></li>
+  </ul>
+  <div class="foot"><span>Detail</span><span>12</span></div>
+</div></section>
+
+<section class="slide"><div class="stage close">
+  <div>
+    <img src="img/qr.svg" alt="QR code linking to emicworks.com">
+    <p class="mute small" style="margin-top:1.6cqw">emicworks.com</p>
+  </div>
+</div></section>
+
+</main>
+
+<nav class="nav" aria-label="Slides">
+  <button id="prev" aria-label="Previous slide">‹</button><span id="count">1 / 12</span><button id="next" aria-label="Next slide">›</button>
+</nav>
+
+<script>
+{
+const sel=[["GAD5-2","Arrival"],["GAD5-10","Arm in arm"],["GAD5-9","The look"],["GAD5-3","Together"],["GAD5-5","On site"],["GAD5-6","Looking up"],["GAD5","The building"],["GAD5-7","Laughter"],["GAD5-13","In conversation"],["GAD5-12","Listening"]];
+const res=["GAD5-8","GAD5-11","GAD5-18","GAD5-16","GAD5-14","GAD5-4","GAD4","GAD2-2"];
+const nn=i=>String(i+1).padStart(2,"0");
+document.getElementById("edGrid").innerHTML=sel.map((s,i)=>`<img src="img/frame${nn(i)}.jpg" alt="Steel frame ${nn(i)}">`).join("");
+const src=n=>{const i=sel.findIndex(x=>x[0]===n);return i>=0?`img/photo${nn(i)}.jpg`:`img/r_${n}.jpg`};
+const flow=["GAD5-14","GAD5-2","GAD5-4","GAD5-10","GAD5-3","GAD2-2","GAD5-5","GAD4","GAD5-9","GAD5-6","GAD5-16","GAD5-11","GAD5","GAD5-7","GAD5-13","GAD5-18","GAD5-12","GAD5-8"];
+document.getElementById("selGrid").innerHTML=flow.map(n=>[n,src(n)]).map(([n,src])=>`<figure><img src="${src}" alt="Photograph ${n}"><figcaption><span>${n}</span></figcaption></figure>`).join("");
+
+/* dimension helpers, units = drawing units */
+function hd(x1,x2,y,ref,t,sw,fs){return `<line class="ext" x1="${x1}" y1="${ref}" x2="${x1}" y2="${y+(y<ref?-1:1)*sw*4}" stroke-width="${sw}"/><line class="ext" x1="${x2}" y1="${ref}" x2="${x2}" y2="${y+(y<ref?-1:1)*sw*4}" stroke-width="${sw}"/><line class="ln" x1="${x1}" y1="${y}" x2="${x2}" y2="${y}" stroke-width="${sw}" marker-start="url(#ar)" marker-end="url(#ar)"/><text x="${(x1+x2)/2}" y="${y-fs*.45}" font-size="${fs}" text-anchor="middle">${t}</text>`}
+function vd(y1,y2,x,ref,t,sw,fs){const cx=x-fs*.45;return `<line class="ext" x1="${ref}" y1="${y1}" x2="${x+(x<ref?-1:1)*sw*4}" y2="${y1}" stroke-width="${sw}"/><line class="ext" x1="${ref}" y1="${y2}" x2="${x+(x<ref?-1:1)*sw*4}" y2="${y2}" stroke-width="${sw}"/><line class="ln" x1="${x}" y1="${y1}" x2="${x}" y2="${y2}" stroke-width="${sw}" marker-start="url(#ar)" marker-end="url(#ar)"/><text x="${cx}" y="${(y1+y2)/2}" font-size="${fs}" text-anchor="middle" transform="rotate(-90 ${cx} ${(y1+y2)/2})">${t}</text>`}
+
+/* steel frame, units cm */
+{const sw=.18,fs=2.6;let g=`<rect x="0" y="0" width="42" height="42" fill="#2a2c30" stroke="#b9bec4" stroke-width="${sw*1.4}"/><rect x="16" y="16" width="10" height="10" fill="#0c0d0f" stroke="#b9bec4" stroke-width="${sw}"/><text x="21" y="21.6" font-size="1.3" text-anchor="middle">PRINT</text><line class="ext" x1="21" y1="-1" x2="21" y2="43" stroke-width="${sw*.6}"/><line class="ext" x1="-1" y1="21" x2="43" y2="21" stroke-width="${sw*.6}"/>`;
+g+=hd(0,42,-6,0,"420",sw,fs)+vd(0,42,49,42,"420",sw,fs);
+g+=hd(0,16,48,42,"160",sw,fs)+hd(16,26,48,42,"100",sw,fs)+hd(26,42,48,42,"160",sw,fs);
+g+=vd(0,16,-6,0,"160",sw,fs)+vd(16,26,-6,0,"100",sw,fs)+vd(26,42,-6,0,"160",sw,fs);
+g+=`<rect x="57" y="0" width="4" height="42" fill="#2a2c30" stroke="#b9bec4" stroke-width="${sw*1.4}"/><text x="59" y="48" font-size="${fs*.8}" text-anchor="middle">SIDE</text>`+hd(57,61,-6,0,"40",sw,fs);
+document.getElementById("dFrame").innerHTML=g;}
+
+/* portrait frame, units cm */
+{const sw=.55,fs=7.5;let g=`<rect x="0" y="0" width="130" height="150" fill="#f2f1ee" stroke="#c4c8cd" stroke-width="1.2"/><image href="img/portrait.jpg" x="15" y="15" width="100" height="120" preserveAspectRatio="none" opacity=".85"/><rect x="15" y="15" width="100" height="120" fill="none" stroke="#b9bec4" stroke-width="${sw}"/>`;
+g+=hd(0,130,-16,0,"1300",sw,fs)+vd(0,150,-18,0,"1500",sw,fs);
+g+=hd(0,15,168,150,"150",sw,fs)+hd(15,115,168,150,"1000",sw,fs)+hd(115,130,168,150,"150",sw,fs);
+g+=vd(0,15,150,130,"150",sw,fs)+vd(15,135,150,130,"1200",sw,fs)+vd(135,150,150,130,"150",sw,fs);
+g+=`<rect x="168" y="0" width="4" height="150" fill="#2a2c30" stroke="#b9bec4" stroke-width="${sw*1.4}"/><text x="170" y="164" font-size="${fs*.8}" text-anchor="middle">SIDE</text>`+hd(168,172,-16,0,"40",sw,fs);
+document.getElementById("dBig").innerHTML=g;}
+
+/* wall, units cm */
+{const sw=.45,fs=6.2;let g="";
+sel.forEach((s,i)=>{const r=Math.floor(i/5),c=i%5,x=c*52,y=r*52;g+=`<image href="img/frame${nn(i)}.jpg" x="${x}" y="${y}" width="42" height="42"/><text x="${x+21}" y="${y+48.5}" font-size="3.2" text-anchor="middle">${nn(i)}</text>`});
+g+=hd(0,250,-14,0,"2500",sw,fs)+vd(0,94,-16,0,"940",sw,fs);
+g+=hd(42,52,118,94,"100",sw,fs)+hd(0,42,118,94,"420",sw,fs);
+g+=`<line x1="-30" y1="197" x2="270" y2="197" stroke="#5b5f65" stroke-width=".6"/><text x="270" y="204" font-size="3.6" text-anchor="end">Floor</text><line class="ext" x1="-6" y1="47" x2="262" y2="47" stroke-width="${sw*.6}"/>`;
+g+=vd(47,197,262,250,"1500 to centre",sw,fs);
+document.getElementById("dWall").innerHTML=g;}
+
+/* navigation */
+const deck=document.getElementById("deck"),slides=[...deck.children],count=document.getElementById("count");
+let cur=0;
+const go=i=>{cur=Math.max(0,Math.min(slides.length-1,i));slides[cur].scrollIntoView({behavior:matchMedia("(prefers-reduced-motion:reduce)").matches?"auto":"smooth",inline:"start",block:"nearest"})};
+document.getElementById("prev").addEventListener("click",()=>go(cur-1));
+document.getElementById("next").addEventListener("click",()=>go(cur+1));
+addEventListener("keydown",e=>{if(["ArrowRight","PageDown"," "].includes(e.key)){e.preventDefault();go(cur+1)}if(["ArrowLeft","PageUp"].includes(e.key)){e.preventDefault();go(cur-1)}});
+const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting&&en.intersectionRatio>.6){cur=slides.indexOf(en.target);count.textContent=`${cur+1} / ${slides.length}`}}),{root:deck,threshold:[.6]});
+slides.forEach(s=>io.observe(s));
+}
+</script>
+</body>
+</html>
